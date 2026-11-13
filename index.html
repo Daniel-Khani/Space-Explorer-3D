@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050711">
+  <title>ORBIT — 3D Space Explorer</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="script.js"></script>
+</head>
+<body>
+  <canvas id="space"></canvas>
+
+  <header class="top ui">
+    <div class="brand">
+      <div class="logo">✳</div>
+      <div>
+        <h1>ORBIT</h1>
+        <p>INTERACTIVE SPACE EXPLORER</p>
+      </div>
+    </div>
+    <div class="status"><span class="live-dot"></span>SYSTEM ONLINE</div>
+  </header>
+
+  <aside class="panel left ui">
+    <div class="eyebrow">DEEP SPACE / 01</div>
+    <h2>Celestial bodies</h2>
+    <div id="planetList" class="planet-list"></div>
+    <div class="left-footer">SOLAR SYSTEM SIMULATION<br>Explore. Observe. Discover.</div>
+  </aside>
+
+  <aside class="panel right ui">
+    <div class="eyebrow">PLANETARY DOSSIER</div>
+    <div class="planet-hero">
+      <div id="preview" class="planet-preview"></div>
+      <div>
+        <div id="planetName" class="planet-title">Earth</div>
+        <div id="planetType" class="planet-subtitle">TERRESTRIAL PLANET</div>
+      </div>
+    </div>
+
+    <p id="description" class="description"></p>
+
+    <div class="metrics">
+      <div class="metric"><span>ORBIT RADIUS*</span><strong id="distance">1.0 AU</strong></div>
+      <div class="metric"><span>DAY LENGTH</span><strong id="dayLength">24 hours</strong></div>
+      <div class="metric"><span>MOONS</span><strong id="moons">1</strong></div>
+      <div class="metric"><span>DIAMETER</span><strong id="diameter">12,742 km</strong></div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="control-label">
+      <span>CAMERA DISTANCE</span><span id="zoomValue">100%</span>
+    </div>
+    <input id="zoom" type="range" min="25" max="180" value="100">
+
+    <div class="button-row">
+      <button class="action" id="focusBtn">◎ Focus planet</button>
+      <button class="action" id="resetBtn">↺ Reset view</button>
+    </div>
+  </aside>
+
+  <div class="hint ui">DRAG TO ORBIT · SCROLL TO ZOOM · CLICK A PLANET</div>
+
+  <div class="panel bottom ui">
+    <div class="bottom-info">
+      <strong id="simStatus">Simulation</strong>
+      <span id="yearLabel">SIMULATED TIME</span>
+    </div>
+    <button class="icon-btn" id="playBtn" title="Pause or resume">Ⅱ</button>
+    <div class="timeline">
+      <div class="control-label">
+        <span>TIME SPEED</span><span id="speedValue">1.0×</span>
+      </div>
+      <input id="speed" type="range" min="0" max="5" value="1" step="0.1">
+      <div class="timeline-labels"><span>PAUSE</span><span>NORMAL</span><span>FAST</span></div>
+    </div>
+  </div>
+
+  <div id="tooltip"></div>
+</body>
+</html>
